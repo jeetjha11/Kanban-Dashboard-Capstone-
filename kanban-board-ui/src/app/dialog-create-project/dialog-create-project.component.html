@@ -6,34 +6,18 @@
         <div>
           <form [formGroup]="projectFormData" (ngSubmit)="projectData()">
             <mat-form-field style="width: 100%;" >
-              <input matInput placeholder="Project Name" required formControlName="projectName">
-              <mat-error *ngIf="projectName?.errors?.['required']">
-                Project Name is required.
+              <input matInput placeholder="Project Name" required formControlName="post_title">
+              <mat-error *ngIf="post_title?.errors?.['required']">
+                Post Title is required.
               </mat-error>
             </mat-form-field><br>
-            <mat-form-field style="width: 100%;">
-              <textarea matInput placeholder="Enter Description"  required
-                formControlName="projectDescription"></textarea>
-              <mat-error *ngIf="projectDescription?.errors?.['required']">
-                Description is required.
+            <mat-form-field style="width: 100%;" >
+              <input matInput placeholder="Project Name" required formControlName="post_description">
+              <mat-error *ngIf="post_description?.errors?.['required']">
+                Post Descriptions is required.
               </mat-error>
             </mat-form-field><br>
-            <!-- <mat-form-field>
-            <input matInput placeholder="Please Choose some deadline" required formControlName="deadline">
-            <mat-error *ngIf="deadline?.errors?.['required']">
-              Deadline is required.
-            </mat-error>
-          </mat-form-field> -->
-            <mat-form-field appearance="fill">
-              <input [min]="minDate" matInput placeholder="Please Choose some deadline" [matDatepicker]="picker"
-                formControlName="deadline" required>
-              <mat-error *ngIf="deadline?.errors?.['required']">
-                Deadline is required.
-              </mat-error>
-              <mat-hint>MM/DD/YYYY</mat-hint>
-              <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-              <mat-datepicker #picker></mat-datepicker>
-            </mat-form-field>
+            
             <br>
             <button color="warn" mat-button mat-raised-button type="reset">Reset</button>&nbsp;&nbsp;
             <button mat-raised-button [disabled]="projectFormData.invalid" [mat-dialog-close]="projectFormData.value"

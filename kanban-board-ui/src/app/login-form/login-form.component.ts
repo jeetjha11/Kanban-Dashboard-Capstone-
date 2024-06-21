@@ -38,23 +38,7 @@ export class LoginFormComponent {
       next : (response) => {
         this.responseData = response;
        
-        this.userService.authToken.next(this.responseData.token);
-        localStorage.setItem("jwt", this.responseData.token);
-        localStorage.setItem("isLoggedIn", 'true');
-        this.userService.isLoggedIn.next(true);
-        this.router.navigateByUrl('');
-      },
-      error : (err) => {
-        let error;
-        if(err.status == 404 ) {
-          error = "Login Failed! Please Check The Credentials Again!"
-        }else {
-          error = "Could not Login! Please Try After Some Time"
-        }
-        this._snackBar.open(error,"Close", {
-          duration : 3000
-        })
-      }
+        
     },
 
 
